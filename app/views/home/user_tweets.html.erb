@@ -1,0 +1,16 @@
+<h1><%= @item.titleize %>'s Tweets</h1>
+
+<ul>
+<% @users.each do |thing| %>
+    <% if @item == thing.user_name %>
+        <% @item_id = thing.id %>
+            <% @tweets.each do |x| %>
+                    <% if x.user_id == @item_id %>
+                        <li><%= x.description %></li>
+                    <% end %>
+            <% end %>
+    <% end %>
+<% end %>
+
+</ul>
+

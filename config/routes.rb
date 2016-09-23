@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  resources :tweets
   devise_for :users
   get 'home/index'
   root 'home#index'
+  get 'home/users'
+  #get :user_name => 'home#user_tweets'
+  get '/(:item)', to: "home#user_tweets", as: 'user_tweets'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

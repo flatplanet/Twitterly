@@ -1,0 +1,15 @@
+<h1>List Users</h1>
+<% @tweets.inspect %>
+<% @users.each do |thing| %>
+    <br/><br/><%= thing.user_name %> - <%= thing.email %> - <%= thing.id %>
+    <br/>
+    <ul>
+    <% @tweets.each do |x| %>
+        
+            <% if thing.id == x.user_id %>
+                <li><%= x.description %></li>
+            <% end %>
+        
+    <% end %>
+    </ul>
+<% end %>
