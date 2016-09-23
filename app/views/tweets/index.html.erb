@@ -13,7 +13,7 @@
 
   <tbody>
     
-    <% @namer[1].id %>
+    <% #@namer[1].id %>
     
   
     <% @tweets.each do |tweet| %>
@@ -22,12 +22,12 @@
         
         <td>
             <% @namer.each do |fart| %>
-              <% if tweet.users_id == fart.id %>
+              <% if tweet.user_id == fart.id %>
                 <%= fart.user_name %>
               <% end %>
             <% end %>
             
-          <% tweet.users_id %></td>
+          <% tweet.user_id %></td>
         <td><%= link_to 'Show', tweet %></td>
         <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
         <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
