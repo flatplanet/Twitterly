@@ -1,5 +1,8 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
 
   # GET /tweets
   # GET /tweets.json
@@ -73,5 +76,10 @@ class TweetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
       params.require(:tweet).permit(:description, :user_name, :user_id, :email, :id)
+    end
+    
+    def correct_user
+      @tweet = current_user.tweet.find_by(id: params[:id])
+      redirect_to tweets_path, notice: "Not authorized to edit this tweet - and you know it!" if @tweet.nil?
     end
 end
