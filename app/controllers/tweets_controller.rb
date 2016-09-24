@@ -14,6 +14,7 @@ class TweetsController < ApplicationController
   # GET /tweets/1
   # GET /tweets/1.json
   def show
+    @namer = User.all
   end
 
   # GET /tweets/new
