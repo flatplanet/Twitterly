@@ -4,7 +4,7 @@
     <% #@namer[1].id %>
     
   
-    <% @tweets.each do |tweet| %>
+    <% @tweets.order("created_at desc").each do |tweet| %>
       
       
         
