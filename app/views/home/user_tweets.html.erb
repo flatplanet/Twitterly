@@ -7,7 +7,13 @@
         <% @item_id = thing.id %>
             <% @tweets.each do |x| %>
                     <% if x.user_id == @item_id %>
-                        <li><%= x.description %> | <%= link_to "Show", controller: "tweets", action: "show", id: x.id   %></li>
+                        <li><%= x.description %> | 
+                        <%= link_to "Show", controller: "tweets", action: "show", id: x.id   %>
+                        <% if current_user.id == thing.id %>
+                          | <%= link_to 'Edit', edit_tweet_path(x.id) %> |
+                          <%= link_to 'Destroy', tweet_path(x.id), method: :delete, data: { confirm: 'Are you sure?' } %> |
+                        <% end %>
+                        </li>
                         
                     <% end %>
             <% end %>
