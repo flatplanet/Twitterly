@@ -1,3 +1,8 @@
+<% if current_user != nil %>
+  <% @current_id = current_user.id %>
+<% else %>
+  <% @current_id = "" %>
+<% end %>
 
 <h1><%= @item.titleize %>'s Tweets</h1>
 
@@ -9,7 +14,7 @@
                     <% if x.user_id == @item_id %>
                         <li><%= x.description %> | 
                         <%= link_to "Show", controller: "tweets", action: "show", id: x.id   %>
-                        <% if current_user.id == thing.id %>
+                        <% if @current_id == thing.id %>
                           | <%= link_to 'Edit', edit_tweet_path(x.id) %> |
                           <%= link_to 'Destroy', tweet_path(x.id), method: :delete, data: { confirm: 'Are you sure?' } %> |
                         <% end %>
