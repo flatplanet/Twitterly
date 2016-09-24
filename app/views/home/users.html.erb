@@ -1,7 +1,7 @@
 <h1>List Users</h1>
 <% @tweets.inspect %>
 <% @users.each do |thing| %>
-    <br/><br/><%= thing.user_name %> - <%= thing.email %> - <%= thing.id %>
+    <br/><br/><a href="/<%= thing.user_name %>">@<%= thing.user_name %></a> <% thing.email %> <% thing.id %>
     <br/>
     <ul>
     <% @tweets.each do |x| %>
