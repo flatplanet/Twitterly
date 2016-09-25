@@ -1,5 +1,11 @@
 class HomeController < ApplicationController
   def index
+    
+      @whatevs = User.find_by(id: current_user)  
+    
+    
+    
+    
   end
   
   def users
