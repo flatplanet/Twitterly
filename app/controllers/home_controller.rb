@@ -10,8 +10,10 @@ class HomeController < ApplicationController
   
   def user_tweets
     @item = params['item']
+    @whatevs = User.find_by(user_name: @item)  
     @tweets = Tweet.all
     @users = User.all
+
     #@fart = @users.find(params[:item])
   end
   

@@ -1,25 +1,18 @@
 <h1><%= @item.titleize %>'s Tweets</h1>
 
 <ul>
-<% @users.each do |thing| %>
-    <% if @item == thing.user_name %>
-        <% @item_id = thing.id %>
-            <% @tweets.each do |x| %>
-                    <% if x.user_id == @item_id %>
-                        <li><%= x.description %> | 
-                        <%= link_to "Show", controller: "tweets", action: "show", id: x.id   %>
-                        <% if user_signed_in? %>
-                            <% if current_user.id == thing.id %>
-                              | <%= link_to 'Edit', edit_tweet_path(x.id) %> |
-                              <%= link_to 'Destroy', tweet_path(x.id), method: :delete, data: { confirm: 'Are you sure?' } %> |
-                            <% end %>
-                        <% end %>
-                        </li>
-                        
-                    <% end %>
+<% @whatevs.tweet.each do |tweeters| %>
+    
+        <li><%= tweeters.description %> 
+            | <%= link_to "Show", controller: "tweets", action: "show", id: tweeters.id   %> 
+            <% if user_signed_in? %>
+                <% if current_user.id == tweeters.user_id %>
+                    | <%= link_to 'Edit', edit_tweet_path(tweeters.id) %> 
+                    | <%= link_to 'Destroy', tweet_path(tweeters.id), method: :delete, data: { confirm: 'Are you sure?' } %> |
+                <% end %>
             <% end %>
+        </li>
+    
     <% end %>
-<% end %>
-
-</ul>
+</ul>    
 
