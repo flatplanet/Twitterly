@@ -1,8 +1,6 @@
 <h1><%= @item.titleize %>'s Tweets</h1>
-
 <ul>
 <% @whatevs.tweet.each do |tweeters| %>
-    
         <li><%= tweeters.description %> 
             | <%= link_to "Show", controller: "tweets", action: "show", id: tweeters.id   %> 
             <% if user_signed_in? %>
@@ -12,7 +10,6 @@
                 <% end %>
             <% end %>
         </li>
-    
     <% end %>
 </ul>    
 
