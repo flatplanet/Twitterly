@@ -13,10 +13,7 @@ class HomeController < ApplicationController
     @whatevs = User.find_by(user_name: @item)  
     @tweets = Tweet.all
     @users = User.all
-    @count = 1
-    @array = ["John", "Fred", "Bob", "Tim"]
-
-    #@fart = @users.find(params[:item])
+    
   end
   
 
